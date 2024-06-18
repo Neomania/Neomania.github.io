@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://5gcgasdgj8ws"]
+
+[ext_resource type="PackedScene" uid="uid://bkinhkxg6jqcg" path="res://alchemy_ui.tscn" id="1_nrvft"]
+
+[node name="World" type="Node2D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="Alchemy UI" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_nrvft")]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcda223sd6rvh"]
+
+[ext_resource type="Script" path="res://belt.gd" id="1_4guvc"]
+
+[node name="Orb Belt" type="Node2D"]
+script = ExtResource("1_4guvc")
+
+[node name="Holders" type="Node2D" parent="."]

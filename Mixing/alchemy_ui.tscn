@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkinhkxg6jqcg"]
+
+[ext_resource type="PackedScene" uid="uid://65nx1lj83pn1" path="res://cauldron.tscn" id="1_827dr"]
+[ext_resource type="PackedScene" uid="uid://bcda223sd6rvh" path="res://belt.tscn" id="2_864g8"]
+
+[node name="Alchemy UI" type="Node2D"]
+
+[node name="Cauldron" parent="." instance=ExtResource("1_827dr")]
+position = Vector2(1408, 351)
+
+[node name="Orb Belt" parent="." instance=ExtResource("2_864g8")]
+position = Vector2(0, 64)

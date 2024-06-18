@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://1u0qbbsmkjcs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvjy3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Circuit" type="Node2D" parent="."]
+
+[node name="Lightbulb" type="Node2D" parent="Circuit"]
+position = Vector2(156, 108)
+metadata/Test = 0.0
+
+[node name="Label" type="Label" parent="Circuit/Lightbulb"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "motor"
+
+[node name="Point" type="Area2D" parent="Circuit/Lightbulb"]
+position = Vector2(-13, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Circuit/Lightbulb/Point"]
+shape = SubResource("CircleShape2D_pvjy3")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://65nx1lj83pn1"]
+
+[ext_resource type="Script" path="res://cauldron.gd" id="1_vm3pl"]
+[ext_resource type="Texture2D" uid="uid://0t3q528cu41i" path="res://Assets/FlaskMask.png" id="2_1i25s"]
+[ext_resource type="Texture2D" uid="uid://cdl63hby45yn8" path="res://Assets/Flask.png" id="3_yixlv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3wf08"]
+radius = 246.272
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57for"]
+size = Vector2(20, 10.6151)
+
+[node name="Cauldron" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_vm3pl")
+
+[node name="Collision Mask" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_1i25s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(-114, -177.5, -117.3, -177.5, -156, -151.4, -156, -150.7, -190, -117.7, -190, -115.8, -212, -86.8, -212, -85, -232, -45, -232, -42.2, -245, 8.5, -245, 18.5, -246, 58.5, -245.2, 58.5, -242.2, 87.5, -241.5, 87.5, -226.5, 137.5, -225.8, 137.5, -209.8, 169.5, -209, 169.5, -186, 201.5, -185.2, 201.5, -157.2, 229.5, -155.3, 229.5, -126.3, 251.5, -124.5, 251.5, -92.5, 268.5, -89.7, 268.5, -49.7, 281.5, -43.8, 281.5, -20.7, 285.5, 19, 285.5, 19, 284.7, 48, 281.7, 48, 280.9, 83, 272, 83, 271.2, 118, 256.2, 118, 255.4, 146, 238.4, 146, 237.5, 163, 224.5, 163, 223.7, 191, 195.7, 191, 193.8, 209, 170.8, 209, 169, 229, 131.9, 229, 129.2, 242, 89.2, 242, 83.3, 246, 60.2, 246, 18.9, 238.3, -24.5, 237.5, -24.5, 229.5, -51.5, 228.7, -51.5, 216.7, -78.5, 215.9, -78.5, 190.9, -116.5, 190.2, -116.5, 157.2, -150.5, 155.3, -150.5, 140.3, -163.5, 138.4, -163.5, 113, -179.4, 113, -189.5, 114, -295.5, 256, -295.5, 256, 295.5, -256, 295.5, -256, -295.5, -114, -295.5)
+
+[node name="Flask" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("3_yixlv")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(0, 40)
+shape = SubResource("CircleShape2D_3wf08")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(0, -235.4)
+scale = Vector2(11.38, 11.38)
+shape = SubResource("RectangleShape2D_57for")
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="on_cauldron_entered"]

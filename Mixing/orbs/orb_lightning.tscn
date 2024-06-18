@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dawh08g15s8sc"]
+
+[ext_resource type="PackedScene" uid="uid://bmaq4b5ko6ewi" path="res://orb.tscn" id="1_i0ykk"]
+
+[node name="Orb" instance=ExtResource("1_i0ykk")]
+typecode = "LIGHTNING"
+
+[node name="Sprite2D" parent="CollisionShape2D" index="0"]
+self_modulate = Color(1, 0.937255, 0.254902, 1)
+
+[node name="Label" parent="CollisionShape2D" index="1"]
+text = "⚡"

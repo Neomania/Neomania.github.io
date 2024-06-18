@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://7e21au8g2htu"]
+
+[ext_resource type="PackedScene" uid="uid://bmaq4b5ko6ewi" path="res://orb.tscn" id="1_18vkq"]
+
+[node name="Orb" instance=ExtResource("1_18vkq")]
+typecode = "STEAM"
+
+[node name="Label" parent="CollisionShape2D" index="1"]
+text = "🌧"
