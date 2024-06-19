@@ -5,8 +5,8 @@
 [node name="Orb" instance=ExtResource("1_xeoxl")]
 typecode = "WATER"
 
-[node name="Sprite2D" parent="CollisionShape2D" index="0"]
-modulate = Color(0.137255, 0.443137, 1, 1)
+[node name="Base" parent="CollisionShape2D" index="0"]
+self_modulate = Color(0.0862745, 0.384314, 1, 1)
 
-[node name="Label" parent="CollisionShape2D" index="1"]
+[node name="Label" parent="CollisionShape2D" index="2"]
 text = "🌊"

@@ -5,5 +5,5 @@
 [node name="Orb" instance=ExtResource("1_18vkq")]
 typecode = "STEAM"
 
-[node name="Label" parent="CollisionShape2D" index="1"]
+[node name="Label" parent="CollisionShape2D" index="2"]
 text = "🌧"

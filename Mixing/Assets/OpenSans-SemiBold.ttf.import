@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b5owbwul2orca"
+uid="uid://ck4514swxoiss"
 path="res://.godot/imported/OpenSans-SemiBold.ttf-34ecd4ee9f53638883cd148c59ea7f89.fontdata"
 
 [deps]
@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/OpenSans-SemiBold.ttf-34ecd4ee9f53638883cd148
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-multichannel_signed_distance_field=false
+multichannel_signed_distance_field=true
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
@@ -24,10 +24,16 @@ hinting=1
 subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
-fallbacks=[]
+fallbacks=[Object(SystemFont,"resource_local_to_scene":false,"resource_name":"","fallbacks":Array[Font]([]),"font_names":PackedStringArray("Segoe UI Emoji", "Sans-Serif"),"font_italic":false,"font_weight":400,"font_stretch":100,"antialiasing":1,"generate_mipmaps":false,"allow_system_fallback":true,"force_autohinter":false,"hinting":1,"subpixel_positioning":1,"multichannel_signed_distance_field":false,"msdf_pixel_range":16,"msdf_size":48,"oversampling":0.0,"script":null)
+]
 Compress=null
-compress=true
-preload=[]
+compress=false
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
 language_support={}
 script_support={}
 opentype_features={}

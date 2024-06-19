@@ -5,8 +5,8 @@
 [node name="Orb" instance=ExtResource("1_5hd5j")]
 typecode = "FIRE"
 
-[node name="Sprite2D" parent="CollisionShape2D" index="0"]
-modulate = Color(0.764706, 0.054902, 0, 1)
+[node name="Base" parent="CollisionShape2D" index="0"]
+self_modulate = Color(1, 0.447059, 0.109804, 1)
 
-[node name="Label" parent="CollisionShape2D" index="1"]
+[node name="Label" parent="CollisionShape2D" index="2"]
 text = "🔥"
