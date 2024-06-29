@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcda223sd6rvh"]
+[gd_scene load_steps=11 format=3 uid="uid://bcda223sd6rvh"]
 
 [ext_resource type="Script" path="res://belt.gd" id="1_4guvc"]
+[ext_resource type="PackedScene" uid="uid://cu1yugugu38t" path="res://orbs/orb_copper.tscn" id="4_3sye6"]
+[ext_resource type="PackedScene" uid="uid://b3xwowsff1pu7" path="res://orbs/orb_earth.tscn" id="5_xdx6w"]
+[ext_resource type="PackedScene" uid="uid://bnhf63bwrbwrj" path="res://orbs/orb_fire.tscn" id="6_72u04"]
+[ext_resource type="PackedScene" uid="uid://sdujq0158orj" path="res://orbs/orb_iron.tscn" id="7_0egsc"]
+[ext_resource type="PackedScene" uid="uid://buridmhdgko62" path="res://orbs/orb_wood.tscn" id="7_r7yvr"]
+[ext_resource type="PackedScene" uid="uid://dawh08g15s8sc" path="res://orbs/orb_lightning.tscn" id="8_mm3sk"]
+[ext_resource type="PackedScene" uid="uid://2lwvw8mue3lu" path="res://orbs/orb_oil.tscn" id="9_8k0y8"]
+[ext_resource type="PackedScene" uid="uid://dsk0xb1mvomy1" path="res://orbs/orb_salt.tscn" id="10_c0lgm"]
+[ext_resource type="PackedScene" uid="uid://cj41pnpj3ejts" path="res://orbs/orb_water.tscn" id="11_8hn7l"]
 
 [node name="Orb Belt" type="Node2D"]
 script = ExtResource("1_4guvc")
+orbScenes = Array[PackedScene]([ExtResource("5_xdx6w"), ExtResource("6_72u04"), ExtResource("11_8hn7l"), ExtResource("8_mm3sk"), ExtResource("7_0egsc"), ExtResource("7_r7yvr"), ExtResource("4_3sye6"), ExtResource("9_8k0y8"), ExtResource("10_c0lgm")])
 
 [node name="Holders" type="Node2D" parent="."]

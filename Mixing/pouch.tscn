@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c24mgxdojpstf"]
+
+[ext_resource type="Texture2D" uid="uid://nmwikn5fhq3v" path="res://Assets/Pouch/PouchHitbox.png" id="1_6ad2h"]
+[ext_resource type="Texture2D" uid="uid://pshphamp3b4p" path="res://Assets/Pouch/PouchBackground.png" id="2_v2jyk"]
+[ext_resource type="Texture2D" uid="uid://db68cluvfvid4" path="res://Assets/Pouch/PouchForeground.png" id="3_60ixg"]
+
+[node name="Pouch" type="StaticBody2D"]
+z_index = -10
+scale = Vector2(0.5, 0.5)
+
+[node name="HitboxSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_6ad2h")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_v2jyk")
+
+[node name="Foreground" type="Sprite2D" parent="."]
+z_index = 10
+texture = ExtResource("3_60ixg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(442, -161.9, 511, 9, 511, 13.2, 541, 137.4, 541, 146, 546, 600, -546.1, 600, -540.9, 133, -539, 133, -510, 5, -508.3, 5, -442, -161.8, -442, -165, -436.6, -167.8, -411.1, -150, -413.3, -143, -414.7, -143, -481, 20.9, -481, 24.5, -513, 176.5, -513, 199.5, -503.4, 290.1, -465.9, 365, -434.9, 397, -433.5, 397, -390.5, 426, -389.1, 426, -288.1, 462, -283.7, 462, -137.4, 481, -117, 481, 81, 483, 81, 482.3, 236, 471.3, 346, 445, 432.3, 398.8, 484, 338.2, 484, 337.2, 510, 262.3, 510, 256, 511, 160, 481.9, 25, 412, -147, 412, -154, 442, -170.5)

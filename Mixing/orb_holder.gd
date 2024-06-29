@@ -5,13 +5,13 @@ class_name OrbHolder
 @export var speed: float = 300
 
 #some multiple of 64
-var magicSelectionNumber = 1408
+var magicSelectionNumber = 1216
 
 
 func _ready():
 	set_position(target);
 	
-func _process(delta):
+func _process(_dt):
 	# less than fractional lerp threshold
 	if (target.x == magicSelectionNumber):
 		set_position(position + (target + Vector2(0.0, 32.0) - position) * 0.05)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq7ah4x16t3mo"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_ldvqw"]
+[ext_resource type="Texture2D" uid="uid://p53mwrcq4rmm" path="res://Assets/Kenney/Characters/Spritesheet/enemy_guy.png" id="2_0n618"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awgrf"]
+radius = 255.282
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(846, 149)
+collision_layer = 4
+collision_mask = 0
+platform_floor_layers = 4294967289
+script = ExtResource("1_ldvqw")
+ai_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_awgrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture_filter = 1
+scale = Vector2(32, 32)
+texture = ExtResource("2_0n618")

@@ -1,7 +1,11 @@
-extends RigidBody2D
+extends DraggableBody
 class_name Orb
 
 @export var typecode: String = "NULL"
+
+func deferred_change_orb(orb):
+	get_parent().add_child(orb)
+	self.queue_free()
 
 func _on_body_entered(body):
 	if (freeze == false and body is Orb and body.freeze == false and self.typecode == "WATER" and body.typecode == "FIRE"):
@@ -13,6 +17,5 @@ func _on_body_entered(body):
 		steamOrb.set_collision_layer(1)
 		steamOrb.set_freeze_enabled(false)
 		
-		get_parent().add_child(steamOrb)
-		body.queue_free()
+		call_deferred("deferred_change_orb", steamOrb)
 		self.queue_free()

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw4p2de4ky3fe"]
+
+[ext_resource type="PackedScene" uid="uid://bmaq4b5ko6ewi" path="res://orb.tscn" id="1_gk6ih"]
+
+[node name="Orb" instance=ExtResource("1_gk6ih")]
+typecode = "TIN"
+
+[node name="Label" parent="CollisionShape2D" index="2"]
+text = "Sn"

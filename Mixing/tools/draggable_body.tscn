@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0pqcco1y2u53"]
+
+[ext_resource type="Texture2D" uid="uid://tarertc636aw" path="res://icon.svg" id="1_r1r56"]
+[ext_resource type="Script" path="res://tools/draggable_body.gd" id="2_m51bm"]
+[ext_resource type="Texture2D" uid="uid://dc85np8omfco6" path="res://Assets/Orb.png" id="3_6bqfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jamy6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2h6b"]
+friction = 0.25
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxpbv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(760, 816)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(34.765, 2.72)
+shape = SubResource("RectangleShape2D_jamy6")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_r1r56")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(761, 571)
+scale = Vector2(1, 1.00429)
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_v2h6b")
+script = ExtResource("2_m51bm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(1.94448, 1.94448)
+shape = SubResource("CircleShape2D_lxpbv")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
+scale = Vector2(0.0382526, 0.0382526)
+texture = ExtResource("3_6bqfo")
+
+[connection signal="mouse_entered" from="RigidBody2D" to="RigidBody2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="RigidBody2D" to="RigidBody2D" method="_on_mouse_exited"]

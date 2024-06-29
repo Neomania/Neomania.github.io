@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://orb.gd" id="1_3lucy"]
 [ext_resource type="Texture2D" uid="uid://dc85np8omfco6" path="res://Assets/Orb.png" id="1_fyplt"]
 [ext_resource type="Texture2D" uid="uid://c2ux15wtp61vl" path="res://Assets/OrbHighlight.png" id="3_3yyqd"]
-[ext_resource type="FontFile" uid="uid://ck4514swxoiss" path="res://Assets/OpenSans-SemiBold.ttf" id="3_blo68"]
+[ext_resource type="FontFile" uid="uid://ps6ujqey78wm" path="res://Assets/NotoColorEmoji-Regular.ttf" id="4_sblu7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g5x0b"]
 friction = 0.3
@@ -13,10 +13,11 @@ bounce = 0.2
 radius = 256.0
 
 [sub_resource type="Theme" id="Theme_7ty41"]
-default_font = ExtResource("3_blo68")
+default_font = ExtResource("4_sblu7")
 
 [node name="Orb" type="RigidBody2D"]
 collision_layer = 0
+input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_g5x0b")
 can_sleep = false
 freeze = true
@@ -26,7 +27,7 @@ contact_monitor = true
 script = ExtResource("1_3lucy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.12, 0.12)
 shape = SubResource("CircleShape2D_4vykr")
 
 [node name="Base" type="Sprite2D" parent="CollisionShape2D"]
@@ -35,7 +36,7 @@ texture = ExtResource("1_fyplt")
 [node name="Highlight" type="Sprite2D" parent="CollisionShape2D"]
 modulate = Color(1, 1, 1, 0.529412)
 top_level = true
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.12, 0.12)
 texture = ExtResource("3_3yyqd")
 
 [node name="Label" type="Label" parent="CollisionShape2D"]
@@ -63,3 +64,5 @@ remote_path = NodePath("../Highlight")
 update_rotation = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

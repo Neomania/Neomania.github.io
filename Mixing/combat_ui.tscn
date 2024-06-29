@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3q1sl34ewe1r"]
+
+[ext_resource type="Script" path="res://combat_ui.gd" id="1_jo3wi"]
+[ext_resource type="Texture2D" uid="uid://j0e8ghxaq0uk" path="res://Assets/Sword.png" id="1_uw63d"]
+[ext_resource type="PackedScene" uid="uid://b2tvifjafahm5" path="res://weapon_spot.tscn" id="3_3gytb"]
+[ext_resource type="PackedScene" uid="uid://bcda223sd6rvh" path="res://belt.tscn" id="4_hxeru"]
+
+[node name="CombatUI" type="Node2D" groups=["OrbReceiver"]]
+script = ExtResource("1_jo3wi")
+
+[node name="Sword" type="Node2D" parent="."]
+position = Vector2(1448, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sword"]
+texture = ExtResource("1_uw63d")
+
+[node name="WeaponSpot" parent="Sword" instance=ExtResource("3_3gytb")]
+position = Vector2(0, -304)
+
+[node name="WeaponSpot2" parent="Sword" instance=ExtResource("3_3gytb")]
+position = Vector2(0, -128)
+
+[node name="WeaponSpot3" parent="Sword" instance=ExtResource("3_3gytb")]
+position = Vector2(0, 64)
+
+[node name="WeaponSpot4" parent="Sword" instance=ExtResource("3_3gytb")]
+position = Vector2(0, 336)
+
+[node name="WeaponSpot5" parent="Sword" instance=ExtResource("3_3gytb")]
+position = Vector2(-104, 256)
+
+[node name="WeaponSpot6" parent="Sword" instance=ExtResource("3_3gytb")]
+position = Vector2(104, 256)
+
+[node name="Orb Belt" parent="." instance=ExtResource("4_hxeru")]

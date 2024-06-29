@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dniq18jrpwknn"]
+
+[ext_resource type="PackedScene" uid="uid://ddgxvber2k3wt" path="res://world_map.tscn" id="1_s4bn3"]
+[ext_resource type="Script" path="res://player_controller.gd" id="2_ulqob"]
+[ext_resource type="Texture2D" uid="uid://cbdk1d6h205or" path="res://Assets/Kenney/Characters/Spritesheet/guy.png" id="3_xkcw8"]
+[ext_resource type="Script" path="res://enemy.gd" id="4_mri0k"]
+[ext_resource type="Texture2D" uid="uid://dc85np8omfco6" path="res://Assets/Orb.png" id="4_r3o13"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyyig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awgrf"]
+radius = 255.282
+
+[node name="Overworld" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_s4bn3")]
+position = Vector2(900, 450)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(800, 450)
+scale = Vector2(4, 4)
+script = ExtResource("2_ulqob")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_lyyig")
+
+[node name="Guy" type="Sprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(0, -1)
+texture = ExtResource("3_xkcw8")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(846, 149)
+script = ExtResource("4_mri0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_awgrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy/CollisionShape2D"]
+texture = ExtResource("4_r3o13")
+
+[node name="Label" type="Label" parent="Enemy"]
+offset_left = 35.0
+offset_top = -69.0
+offset_right = 75.0
+offset_bottom = -46.0

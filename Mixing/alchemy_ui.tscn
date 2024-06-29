@@ -1,12 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkinhkxg6jqcg"]
+[gd_scene load_steps=6 format=3 uid="uid://bkinhkxg6jqcg"]
 
 [ext_resource type="PackedScene" uid="uid://65nx1lj83pn1" path="res://cauldron.tscn" id="1_827dr"]
 [ext_resource type="PackedScene" uid="uid://bcda223sd6rvh" path="res://belt.tscn" id="2_864g8"]
+[ext_resource type="PackedScene" uid="uid://dqwa1q33shygj" path="res://sword_mold.tscn" id="3_0kt4h"]
+[ext_resource type="PackedScene" uid="uid://c24mgxdojpstf" path="res://pouch.tscn" id="4_5et5x"]
+[ext_resource type="Script" path="res://cheat_spawner.gd" id="15_8qg7b"]
 
 [node name="Alchemy UI" type="Node2D"]
 
 [node name="Cauldron" parent="." instance=ExtResource("1_827dr")]
-position = Vector2(1408, 351)
+position = Vector2(866, 484)
 
 [node name="Orb Belt" parent="." instance=ExtResource("2_864g8")]
-position = Vector2(0, 64)
+
+[node name="Sword Mold" parent="." instance=ExtResource("3_0kt4h")]
+position = Vector2(483, 503)
+
+[node name="Pouch" parent="." instance=ExtResource("4_5et5x")]
+position = Vector2(1307, 448)
+
+[node name="Cheat Orb Spawner" type="Node2D" parent="."]
+script = ExtResource("15_8qg7b")
+
+[node name="Orbs" type="Node2D" parent="."]
+unique_name_in_owner = true

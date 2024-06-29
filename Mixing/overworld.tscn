@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dniq18jrpwknn"]
+
+[ext_resource type="PackedScene" uid="uid://ddgxvber2k3wt" path="res://world_map.tscn" id="1_s4bn3"]
+[ext_resource type="Script" path="res://world_map_orbs.gd" id="2_nicc6"]
+[ext_resource type="Script" path="res://player_controller.gd" id="2_ulqob"]
+[ext_resource type="Texture2D" uid="uid://cbdk1d6h205or" path="res://Assets/Kenney/Characters/Spritesheet/guy.png" id="3_xkcw8"]
+[ext_resource type="PackedScene" uid="uid://bq7ah4x16t3mo" path="res://enemy.tscn" id="5_anqn5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyyig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvx16"]
+
+[node name="Overworld" type="Node2D"]
+
+[node name="TileMap" parent="." groups=["OrbSources"] instance=ExtResource("1_s4bn3")]
+position = Vector2(900, 450)
+script = ExtResource("2_nicc6")
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player", "WeaponListener"]]
+position = Vector2(800, 448)
+scale = Vector2(4, 4)
+collision_layer = 2
+collision_mask = 0
+platform_floor_layers = 4294967289
+script = ExtResource("2_ulqob")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_lyyig")
+
+[node name="Guy" type="Sprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(0, -1)
+texture = ExtResource("3_xkcw8")
+
+[node name="EnemyCollider" type="Area2D" parent="Player"]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/EnemyCollider"]
+shape = SubResource("CircleShape2D_qvx16")
+
+[node name="HealthBar" type="Node2D" parent="Player"]
+position = Vector2(-8, 8)
+scale = Vector2(16, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Player/HealthBar"]
+color = Color(1, 0, 0.0666667, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+
+[node name="WeaponCollider" type="Area2D" parent="Player"]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/WeaponCollider"]
+polygon = PackedVector2Array(0, 0, -18, -16, 0, -22, 18, -16)
+
+[node name="Polygon2D" type="Polygon2D" parent="Player/WeaponCollider/CollisionPolygon2D"]
+self_modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(0, 0, 18, -16, 0, -22, -18, -16)
+
+[node name="Enemy" parent="." instance=ExtResource("5_anqn5")]
+
+[connection signal="body_entered" from="Player/EnemyCollider" to="Player" method="_on_enemy_collider_body_entered"]
+[connection signal="body_exited" from="Player/EnemyCollider" to="Player" method="_on_enemy_collider_body_exited"]

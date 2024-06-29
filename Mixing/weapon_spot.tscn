@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2tvifjafahm5"]
+
+[ext_resource type="Texture2D" uid="uid://dc85np8omfco6" path="res://Assets/Orb.png" id="1_ghn0w"]
+[ext_resource type="Script" path="res://weapon_spot.gd" id="1_qmwn8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kjcpn"]
+
+[node name="WeaponSpot" type="Node2D"]
+script = ExtResource("1_qmwn8")
+
+[node name="HolderBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HolderBody"]
+polygon = PackedVector2Array(-32, 8, -16, 32, -24, 32)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="HolderBody"]
+position = Vector2(40, 0)
+polygon = PackedVector2Array(-8, 8, -16, 32, -24, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("1_ghn0w")
+
+[node name="OrbSensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbSensor"]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_kjcpn")
+
+[connection signal="body_entered" from="OrbSensor" to="." method="_on_orb_sensor_body_entered"]
+[connection signal="body_exited" from="OrbSensor" to="." method="_on_orb_sensor_body_exited"]
