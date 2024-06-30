@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_awgrf"]
 radius = 255.282
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 position = Vector2(846, 149)
 collision_layer = 4
 collision_mask = 0

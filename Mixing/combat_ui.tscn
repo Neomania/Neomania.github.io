@@ -33,3 +33,4 @@ position = Vector2(-104, 256)
 position = Vector2(104, 256)
 
 [node name="Orb Belt" parent="." instance=ExtResource("4_hxeru")]
+position = Vector2(1208, 64)

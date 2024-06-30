@@ -7,7 +7,7 @@ var wave_counter = 1
 func _process(delta):
 	spawn_timer -= delta
 	if (spawn_timer < 0):
-		var enemy_count = wave_counter * 5
+		var enemy_count = wave_counter * 10
 		for i in range(0, enemy_count):
 			var enemy = enemy_scene.instantiate()
 			if (wave_counter % 2 == 1):
@@ -18,5 +18,5 @@ func _process(delta):
 			enemy.set_global_position(1000 * Vector2.from_angle(2 * PI * (float(i) / enemy_count)))
 			$SubViewportContainer2/SubViewport/Overworld.add_child(enemy)
 		
-		spawn_timer = 50
+		spawn_timer = 10
 		wave_counter += 1

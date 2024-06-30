@@ -33,6 +33,7 @@ func add_orb(orbScene: PackedScene):
 
 # Polls world for an orb to give the player
 func request_orb():
+	return pick_orb()
 	var sources = get_tree().get_nodes_in_group("OrbSources")
 	
 	if (sources.size() == 0):

@@ -34,10 +34,17 @@ shape = SubResource("CircleShape2D_4vykr")
 texture = ExtResource("1_fyplt")
 
 [node name="Highlight" type="Sprite2D" parent="CollisionShape2D"]
-modulate = Color(1, 1, 1, 0.529412)
+self_modulate = Color(1, 1, 1, 0.529412)
 top_level = true
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("3_3yyqd")
+
+[node name="UsesLabel" type="Label" parent="CollisionShape2D/Highlight"]
+offset_left = 325.0
+offset_top = -500.0
+offset_right = 496.0
+offset_bottom = -91.0
+theme_override_font_sizes/font_size = 300
 
 [node name="Label" type="Label" parent="CollisionShape2D"]
 anchors_preset = 8

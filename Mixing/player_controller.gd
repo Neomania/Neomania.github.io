@@ -7,6 +7,7 @@ var enemy_list: Array[Enemy] = []
 var health = 1
 
 var weapon_stats: Array[DamageBlock] = []
+var attack_timer = 1.0
 
 func _ready():
 	health = maxHealth
@@ -28,15 +29,37 @@ func _process(delta):
 		#var damageAmount = get_tree().get_first_node_in_group("OrbStorage").get_total_damage()
 		#get_node("../Enemy").damage(damageAmount)
 		#get_tree().get_first_node_in_group("OrbStorage").clear_orbs()
-	if (Input.is_action_just_pressed("game_weapon_attack")):
-		print(weapon_stats)
-		for enemy in $WeaponCollider.get_overlapping_bodies():
+		
+	var enemies = get_tree().get_nodes_in_group("Enemy")
+	
+	if (enemies.size() > 0):
+		enemies.sort_custom(func (a, b): return (a.global_position - global_position).length_squared() < (b.global_position - global_position).length_squared())
+		$WeaponCollider.set_rotation((enemies[0].global_position - global_position).normalized().angle() + PI / 2)
+	
+	attack_timer -= delta
+	if (attack_timer <= 0):
+		var colliding_enemies = $WeaponCollider.get_overlapping_bodies()
+		
+		for enemy in colliding_enemies:
 			if (enemy is Enemy):
 				for block in weapon_stats:
 					enemy.damage(block.amount, block.type)
-		
+					
+		if (colliding_enemies.size() > 0):
+			get_tree().call_group("OrbReceiver", "damage_orbs", 1)
 		$WeaponCollider/CollisionPolygon2D/Polygon2D.set_self_modulate(Color(1.0, 1.0, 1.0, 1.0))
-	
+		
+		attack_timer = 1.0
+		
+	#if (Input.is_action_just_pressed("game_weapon_attack")):
+		#print(weapon_stats)
+		#for enemy in $WeaponCollider.get_overlapping_bodies():
+			#if (enemy is Enemy):
+				#for block in weapon_stats:
+					#enemy.damage(block.amount, block.type)
+		#
+		#$WeaponCollider/CollisionPolygon2D/Polygon2D.set_self_modulate(Color(1.0, 1.0, 1.0, 1.0))
+	#
 	$WeaponCollider/CollisionPolygon2D/Polygon2D.set_self_modulate($WeaponCollider/CollisionPolygon2D/Polygon2D.self_modulate - Color(0, 0, 0, delta))
 	
 	for enemy in enemy_list:

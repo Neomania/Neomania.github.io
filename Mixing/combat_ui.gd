@@ -3,6 +3,14 @@ extends Node2D
 
 var orbs = []
 
+func damage_orbs(damage):
+	for orb in orbs:
+		if orb is Orb:
+			orb.health -= 1
+			orb.get_node("./CollisionShape2D/Highlight/UsesLabel").set_text("%d" % orb.health)
+			if (orb.health <= 0):
+				orb.queue_free()
+
 func calculate_damage():
 	var fire = 0
 	var water = 0

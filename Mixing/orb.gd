@@ -3,6 +3,11 @@ class_name Orb
 
 @export var typecode: String = "NULL"
 
+var health = 5
+
+func _ready():
+	health = randi_range(8, 20)
+
 func deferred_change_orb(orb):
 	get_parent().add_child(orb)
 	self.queue_free()

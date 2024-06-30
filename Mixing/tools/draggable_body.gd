@@ -8,9 +8,11 @@ func _on_mouse_entered():
 	active = true
 	pass # Replace with function body.
 
-func _physics_process(dt):
+func _process(dt):
 	if (active and Input.is_action_just_pressed("game_item_drag")):
 		dragging = true
+		if (get_parent().has_method("on_drag")):
+			get_parent().call("on_drag")
 		
 	if (dragging):
 		if (Input.is_action_pressed("game_item_drag")):

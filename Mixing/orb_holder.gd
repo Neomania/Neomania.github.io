@@ -5,8 +5,18 @@ class_name OrbHolder
 @export var speed: float = 300
 
 #some multiple of 64
-var magicSelectionNumber = 1216
+@export var magicSelectionNumber = 256
 
+func on_drag():
+	var orb: RigidBody2D = get_child(0)
+	orb.set_freeze_enabled(false)
+	orb.set_collision_layer(1)
+	orb.reparent(get_node("../.."))
+	orb.apply_impulse(Vector2(randf_range(-1.0, 1.0), 0.0))
+	
+	get_node("../../../Orb Belt").cycle_belt()
+	
+	queue_free()
 
 func _ready():
 	set_position(target);
